@@ -46,15 +46,15 @@ function :
 	|
 	;
 expr :
-	HLT				{printf("do HLT\n");code[++codeaddr] = 0x00;$$ = 1;}
-	|SKZ				{printf("do SKZ\n");code[++codeaddr] = 0x20;$$ = 1;}
-	|ADD LABEL			{printf("do ADD\n");code[++codeaddr] = 0x40;oprdtab[oprdnum].string = $2;oprdtab[oprdnum].address = codeaddr;++oprdnum;$$ = 1;}
-	|XOR LABEL			{printf("do XOR\n");code[++codeaddr] = 0x80;oprdtab[oprdnum].string = $2;oprdtab[oprdnum].address = codeaddr;++oprdnum;$$ = 1;}
-	|LDA LABEL			{printf("do LDA\n");code[++codeaddr] = 0xa0;oprdtab[oprdnum].string = $2;oprdtab[oprdnum].address = codeaddr;++oprdnum;$$ = 1;}
-	|STO LABEL			{printf("do STO\n");code[++codeaddr] = 0xc0;oprdtab[oprdnum].string = $2;oprdtab[oprdnum].address = codeaddr;++oprdnum;$$ = 1;} 
-	|JMP LABEL			{printf("do JMP\n");code[++codeaddr] = 0xe0;oprdtab[oprdnum].string = $2;oprdtab[oprdnum].address = codeaddr;++oprdnum;$$ = 1;}
-	|INTEGER			{printf("simple value\n");code[++codeaddr] = $1;$$ = 1;}
-	|LABEL':'expr			{printf("record LABEL\n");lbltab[lblnum].string = $1;lbltab[lblnum].address = codeaddr;++lblnum;$$ = 1;}
+	HLT				{code[++codeaddr] = 0x00;}
+	|SKZ				{code[++codeaddr] = 0x20;}
+	|ADD LABEL			{code[++codeaddr] = 0x40;oprdtab[oprdnum].string = $2;oprdtab[oprdnum].address = codeaddr;++oprdnum;}
+	|XOR LABEL			{code[++codeaddr] = 0x80;oprdtab[oprdnum].string = $2;oprdtab[oprdnum].address = codeaddr;++oprdnum;}
+	|LDA LABEL			{code[++codeaddr] = 0xa0;oprdtab[oprdnum].string = $2;oprdtab[oprdnum].address = codeaddr;++oprdnum;}
+	|STO LABEL			{code[++codeaddr] = 0xc0;oprdtab[oprdnum].string = $2;oprdtab[oprdnum].address = codeaddr;++oprdnum;} 
+	|JMP LABEL			{code[++codeaddr] = 0xe0;oprdtab[oprdnum].string = $2;oprdtab[oprdnum].address = codeaddr;++oprdnum;}
+	|INTEGER			{code[++codeaddr] = $1;}
+	|LABEL':'expr			{lbltab[lblnum].string = $1;lbltab[lblnum].address = codeaddr;++lblnum;}
 	;
 %%
 
