@@ -28,7 +28,7 @@ int n;
 FILE *fp;
 
 void main(int argc,char *argv[]){
-	if((fp = fopen("binary","r")) == NULL)
+	if((fp = fopen("test.bin","r")) == NULL)
 		printf("error: can't open file binary");
 	if((n = fread(ram,1,32,fp)) != 32)
 		printf("error: can't read 32 Bytes");

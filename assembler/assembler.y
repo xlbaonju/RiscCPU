@@ -78,7 +78,7 @@ void freemem(){
 }
 int main(){
 	FILE *fp;
-	if((fp = fopen("binary","w")) == NULL) {printf("open file error");exit(1);}
+	if((fp = fopen("test.bin","w")) == NULL) {printf("open file error");exit(1);}
 	yyparse();
 	relocate();
 	int i = 0;
