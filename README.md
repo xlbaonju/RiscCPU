@@ -18,8 +18,8 @@ My original plan is to refer to the Carp to write a VM about i386.But i can't<br
 
 ### ASM
 
-Compile the test.s, there will be a binary file called "test.bin":<br />
-`./bas < test.s`
+Compile the test\*.s, there will be a binary file called "test.bin":<br />
+`./bas < test\*.s`
 
 ### Run
 Load the binary file and run the VM, you can see what the cpu happened <br />
