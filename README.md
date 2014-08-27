@@ -7,7 +7,7 @@ I saw a repo "carp" and became interested in it.You can get it from here:<br />
 https://github.com/tekknolagi/carp.git
 
 As carp is to translate the asm source, to some point it is not thorough enough.<br />
-Even there is no specific machine for it and no compliered file you can get.<br />
+Even there is no specific machine for it and no compiled file you can get.<br />
 My original plan is to refer to the Carp to write a VM about i386.But i can't<br />
  find something about the i386's instruction.So I refer to the lesson last term.
 
@@ -26,5 +26,5 @@ Load the binary file and run the VM, you can see what the cpu happened <br />
 during every instruction cycle:<br />
 `./vm`
 
-Just for fun,if your asm souce can't pass compile, forgive me there is <br />
+Just for fun,if your asm souce can't pass compiler, forgive me there is <br />
 few error checking.
