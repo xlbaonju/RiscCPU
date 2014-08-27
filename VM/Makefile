@@ -1,3 +1,5 @@
-OBJ = ../vm
-$(OBJ) : VM.c
+all : ../vm
+../vm : VM.c
 	gcc -o $@ $^
+clean :
+	rm ../vm

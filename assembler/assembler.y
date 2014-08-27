@@ -70,6 +70,12 @@ void relocate(){
 void yyerror(char *msg){
 	fprintf(stderr,"%s\n",msg);
 }
+
+void freemem(){
+	int i;
+	for (i = 0;i < lblnum;++i)
+		free(lbltab[i].string);
+}
 int main(){
 	FILE *fp;
 	if((fp = fopen("binary","w")) == NULL) {printf("open file error");exit(1);}
@@ -77,8 +83,9 @@ int main(){
 	relocate();
 	int i = 0;
 	for(;i <= codeaddr;++i){
-	printf("%2x : %2x\n",i, code[i]);
+		printf("%2x : %2x\n",i, code[i]);
 	}
+	freemem();
 	fwrite(code,1,RAM_MAX,fp);
 	fclose(fp);
 	return 0;
